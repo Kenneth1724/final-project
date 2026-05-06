@@ -1,0 +1,19 @@
+h1{
+    color: blue;
+}
+
+#ticket_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border: 2px;
+    color: black;
+    background-color: rgb(254, 164, 40);
+    height: 50px;
+    width: 100px;
+}
+
+body{
+    background-image: url("resources/background.png");
+}
