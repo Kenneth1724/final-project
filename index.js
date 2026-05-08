@@ -2,8 +2,6 @@ const game = document.getElementById("game");
 const totalDisplay = document.getElementById("total");
 const newBtn = document.getElementById("newTickets");
 
-let total = 0;
-
 
 const pool = [
   { Image: "resources/capybara.png", value: 5, weight: 80 },
@@ -27,36 +25,34 @@ function pickValue() {
 
 
 function loadTickets() {
-  game.innerHTML = "";
+  const ticket = document.getElementById("ticket");
+  ticket.innerHTML = "";
+  values = [];
 
   for (let i = 0; i < 8; i++) {
-    const value = pickValue();
 
+    let reward = getRandomReward();
+    values.push(reward);
 
-    const image = images[Math.floor(Math.random() * images.length)];
+    let cell = document.createElement("div");
+    cell.classList.add("cell");
 
-    const card = document.createElement("div");
-    card.className = "card";
+    cell.innerText = "?";
 
-    card.innerHTML = `
-      <img src="${image}" style="display:none;">
-      <div class="cover"></div>
-    `;
+    cell.addEventListener("click", function () {
 
-    const img = card.querySelector("img");
-    const cover = card.querySelector(".cover");
+      
+      cell.innerHTML = `
+        <img src="${reward.image}" width="60">
+        <p>$${reward.value}</p>
+      `;
 
-    cover.onclick = () => {
-      if (cover.style.display === "none") return;
+      cell.style.backgroundColor = "white";
 
-      img.style.display = "block";
-      cover.style.display = "none";
+      checkWin();
+    });
 
-      total += value;
-      totalDisplay.textContent = `Total Won: $${total}`;
-    };
-    total = 0
-    game.appendChild(card);
+    ticket.appendChild(cell);
   }
 }
 
