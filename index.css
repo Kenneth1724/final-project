@@ -1,13 +1,62 @@
-h1{
-    color: blue;
+body {
+  font-family: Arial;
+  text-align: center;
+  background-image: url(resources/background.png);
+  background-size: cover;
 }
 
-
-body{
-    text-align: center;
-    font-family: Arial;
-    background-image: url("resources/background.png");
-    background-size: cover;
+h1 {
+  margin-top: 20px;
 }
 
+#newTickets {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: gold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
+#total{
+    color: white;
+}
+
+#game {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  gap: 8px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 150px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px black;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: gray;
+  cursor: pointer;
+}
+
+#total {
+  margin-top: 20px;
+  font-size: 20px;
+}
