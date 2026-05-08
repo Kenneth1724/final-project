@@ -2,14 +2,24 @@ const game = document.getElementById("game");
 const totalDisplay = document.getElementById("total");
 const newBtn = document.getElementById("newTickets");
 
+let total = 0;
+
 
 const pool = [
-  { Image: "resources/capybara.png", value: 5, weight: 80 },
-  { Image: "resources/capybara.png", value: 10, weight: 20 },
-  { Image: "resources/capybara.png", value: 20, weight: 15 },
-  { Image: "resources/capybara.png", value: 30, weight: 10 },
-  { Image: "resources/capybara.png", value: 100, weight: 5 },
-  { Image: "resources/capybara.png",value: 200, weight: 1 }
+  { value: 5, weight: 80 },
+  { value: 10, weight: 20 },
+  { value: 20, weight: 15 },
+  { value: 30, weight: 10 },
+  { value: 100, weight: 5 },
+  { value: 200, weight: 1 }
+];
+
+
+const images = [
+  "resources/capybara.png",
+  "resources/capybara1.png",
+  "resources/capybara2.png",
+  "resources/homer.png",
 ];
 
 
@@ -25,34 +35,36 @@ function pickValue() {
 
 
 function loadTickets() {
-  const ticket = document.getElementById("ticket");
-  ticket.innerHTML = "";
-  values = [];
+  game.innerHTML = "";
 
   for (let i = 0; i < 8; i++) {
+    const value = pickValue();
 
-    let reward = getRandomReward();
-    values.push(reward);
 
-    let cell = document.createElement("div");
-    cell.classList.add("cell");
+    const image = images[Math.floor(Math.random() * images.length)];
 
-    cell.innerText = "?";
+    const card = document.createElement("div");
+    card.className = "card";
 
-    cell.addEventListener("click", function () {
+    card.innerHTML = `
+      <img src="${image}" style="display:none;">
+      <div class="cover"></div>
+    `;
 
-      
-      cell.innerHTML = `
-        <img src="${reward.image}" width="60">
-        <p>$${reward.value}</p>
-      `;
+    const img = card.querySelector("img");
+    const cover = card.querySelector(".cover");
 
-      cell.style.backgroundColor = "white";
+    cover.onclick = () => {
+      if (cover.style.display === "none") return;
 
-      checkWin();
-    });
+      img.style.display = "block";
+      cover.style.display = "none";
 
-    ticket.appendChild(cell);
+      total += value;
+      totalDisplay.textContent = `Total Won: $${total}`;
+    };
+    total = 0
+    game.appendChild(card);
   }
 }
 

@@ -25,6 +25,8 @@ h1 {
 
 #game {
   display: grid;
+  height: 50vh;
+  width: 100vw;
   grid-template-columns: repeat(4, 150px);
   gap: 8px;
   margin-top: 25px;
