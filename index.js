@@ -55,18 +55,24 @@ function loadTickets() {
     const cover = card.querySelector(".cover");
 
     cover.onclick = () => {
+
       if (cover.style.display === "none") return;
 
       img.style.display = "block";
       cover.style.display = "none";
-
-      total += value;
-      totalDisplay.textContent = `Total Won: $${total}`;
-    };
+      console.log(images[3]);
+      console.log(`${img.src}`);
+    
+      if (img.src.includes("resources/homer.png")) {  
+        total += value;
+        totalDisplay.textContent = `Total Won: $${total}`;
+      }
+    }
     total = 0
     game.appendChild(card);
   }
 }
+
 
 
 newBtn.onclick = loadTickets;
