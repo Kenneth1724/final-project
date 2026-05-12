@@ -3,34 +3,24 @@ const totalDisplay = document.getElementById("total");
 const newBtn = document.getElementById("newTickets");
 
 let total = 0;
-
-
-const pool = [
-  { value: 5, weight: 80 },
-  { value: 10, weight: 20 },
-  { value: 20, weight: 15 },
-  { value: 30, weight: 10 },
-  { value: 100, weight: 5 },
-  { value: 200, weight: 1 }
-];
+7
 
 
 const images = [
   "resources/capybara.png",
   "resources/capybara1.png",
   "resources/capybara2.png",
+  "resources/watermelon.png",
+  "resources/carrot.png",
+  "resources/lettuce.png",
   "resources/homer.png",
 ];
 
 
 function pickValue() {
-  let sum = pool.reduce((a, b) => a + b.weight, 0);
-  let rand = Math.random() * sum;
-
-  for (let item of pool) {
-    if (rand < item.weight) return item.value;
-    rand -= item.weight;
-  }
+  let rand = Math.random(1, 100) * 100;
+  let sumy = Math.floor(rand);
+  return sumy;
 }
 
 
@@ -63,7 +53,7 @@ function loadTickets() {
       console.log(images[3]);
       console.log(`${img.src}`);
     
-      if (img.src.includes("resources/homer.png")) {  
+      if ((img.src.includes("resources/capybara.png") || img.src.includes("resources/capybara1.png") || img.src.includes("resources/capybara2.png"))) {  
         total += value;
         totalDisplay.textContent = `Total Won: $${total}`;
       }
@@ -74,8 +64,4 @@ function loadTickets() {
 }
 
 
-
-newBtn.onclick = loadTickets;
-
-
-loadTickets();
+loadTickets()

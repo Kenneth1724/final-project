@@ -15,8 +15,30 @@ img {
   vertical-align: middle;
 } 
 
+h3{
+  color: white;
+}
+
+
+
+#ticket_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 25%;
+  width: 50vw;
+  height: 70vh;
+  background-color: brown;
+}
+
 #newTickets {
+  display: flex;;
+  justify-content: center;
+  margin-left: 38%;
   margin-top: 10px;
+  width: 300px;
   padding: 10px 15px;
   background: gold;
   border: none;
@@ -43,8 +65,8 @@ img {
 
 .card {
   position: relative;
-  width: 150px;
-  height: 200px;
+  width: 10vw;
+  height: 25vh;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 0 10px black;
