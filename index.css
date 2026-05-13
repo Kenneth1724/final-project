@@ -30,7 +30,9 @@ h3{
   margin-left: 25%;
   width: 50vw;
   height: 70vh;
-  background-color: brown;
+  border: 2px solid rgb(106, 40, 5);
+  box-shadow: 0 0 10px rgb(122, 64, 2);
+  background-color: rgb(109, 59, 4);
 }
 
 #newTickets {
